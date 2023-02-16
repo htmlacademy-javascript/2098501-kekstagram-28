@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Андрей](https://up.htmlacademy.ru/javascript/28/user/2098501).
-* Наставник: `Неизвестно`.
+- Студент: [Андрей](https://up.htmlacademy.ru/javascript/28/user/2098501).
+- Наставник: [Глеб Клецков](https://htmlacademy.ru/profile/id1487865).
 
 ---
 
