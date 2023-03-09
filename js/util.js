@@ -37,8 +37,8 @@ const myPadStart = (string, minLength, pad) => {
   return actualPad <= 0
     ? string
     : pad.slice(0, actualPad % pad.length) +
-        pad.repeat(actualPad / pad.length) +
-        string;
+    pad.repeat(actualPad / pad.length) +
+    string;
 };
 
 myPadStart('q', 4, 'werty');
