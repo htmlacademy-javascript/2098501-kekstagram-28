@@ -74,3 +74,6 @@ const getPictures = () =>
   );
 
 getPictures();
+
+export { getPictures };
+
