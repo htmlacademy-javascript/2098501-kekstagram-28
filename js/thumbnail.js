@@ -1,27 +1,24 @@
-const thumbnailTemplate = document
-  .querySelector('#picture')
-  .textContent.querySelector('.picture');
-const container = document.querySelector('.pictures');
+const userPhotosList = document.querySelector('.pictures');
+const userPictureTemplate = document.querySelector('#picture')
+  .content
+  .querySelector('.picture');
 
-const createThumbnail = ({ comments, description, likes, url }) => {
-  const thumbnail = thumbnailTemplate.cloneNode(true);
+const photosListFragment = document.createDocumentFragment();
+const imgFiltersElement = document.querySelector('.img-filters');
 
-  thumbnail.querySelector('.picture__img').src = url;
-  thumbnail.querySelector('.picture__img').alt = description;
-  thumbnail.querySelector('.picture__comments').textContent = comments.length;
-  thumbnail.querySelector('.picture__likes').textContent = likes;
-
-  return thumbnail;
-};
-
-const renderThumbnails = (pictures) => {
-  const fragment = document.createDocumentFragment();
-  pictures.forEach((picture) => {
-    const thumbnail = createThumbnail(picture);
-    fragment.append(thumbnail);
+const renderThumbnails = (photo) => {
+  photo.forEach(({ url, comments, likes }) => {
+    const photoElement = userPictureTemplate.cloneNode(true);
+    photoElement.querySelector('.picture__img').src = url;
+    photoElement.querySelector('.picture__comments').textContent = comments.length;
+    photoElement.querySelector('.picture__likes').textContent = likes;
+    photosListFragment.appendChild(photoElement);
   });
-
-  container.append(fragment);
+  userPhotosList.querySelectorAll('.picture').forEach((element) => {
+    element.remove();
+  });
+  userPhotosList.appendChild(photosListFragment);
+  imgFiltersElement.classList.remove('img-filters--inactive');
 };
 
 export { renderThumbnails };
